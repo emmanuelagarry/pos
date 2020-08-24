@@ -1,0 +1,13 @@
+<form (ngSubmit)="formSubmit($event)">
+  <mat-form-field appearance="outline" style="width: 100%">
+    <mat-label>Enter Code</mat-label>
+    <input matInput type="tect" />
+  </mat-form-field>
+  <button mat-raised-button color="warn">Submit</button>
+</form>
+<br /><br />
+
+<mat-progress-bar
+  *ngIf="loading$ | async"
+  mode="indeterminate"
+></mat-progress-bar>

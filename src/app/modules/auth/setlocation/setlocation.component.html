@@ -1,0 +1,15 @@
+<form [formGroup]="locationForm" (ngSubmit)="setLocal(locationForm.value)">
+  <mat-form-field appearance="outline">
+    <mat-label>set location</mat-label>
+    <input matInput formControlName="location" placeholder="Placeholder" />
+  </mat-form-field>
+  <br />
+  <button
+    mat-raised-button
+    [disabled]="!locationForm.valid"
+    color="warn"
+    type="submit"
+  >
+    submit
+  </button>
+</form>

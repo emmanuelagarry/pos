@@ -1,0 +1,49 @@
+<ion-header>
+  <mat-toolbar color="warn">
+    <mat-toolbar-row> </mat-toolbar-row>
+    <mat-toolbar-row>Reports</mat-toolbar-row>
+  </mat-toolbar>
+</ion-header>
+
+<ion-content>
+  <mat-tab-group color="warn">
+    <mat-tab label="Expenses(L)">
+      <ng-template matTabContent>
+        <div class="material_tabs">
+          <app-table
+            class="tab_table"
+            [source]="dataSourceLocalExpense"
+            [tableColumn]="tableColumnLocalExpense"
+          ></app-table>
+        </div>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Orders(L)">
+      <ng-template matTabContent>
+        <div class="material_tabs">
+          <app-table
+            class="tab_table"
+            [source]="dataSourceLocalOrders"
+            [tableColumn]="tableColumnLocalOrders"
+          >
+            <ng-template #optionTemplate let-element>
+              <mat-list>
+                <mat-list-item *ngFor="let combo of element.menuList">
+                  <mat-icon
+                    style="transform: scale(2);"
+                    svgIcon="food"
+                    mat-list-icon
+                  ></mat-icon>
+                  <h4 mat-line>{{ combo }}</h4>
+                </mat-list-item>
+              </mat-list>
+            </ng-template>
+          </app-table>
+        </div>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Orders(G)">
+      <ng-template matTabContent> </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</ion-content>

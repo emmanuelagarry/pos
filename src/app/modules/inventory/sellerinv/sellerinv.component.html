@@ -1,0 +1,28 @@
+<div class="material_tabs">
+  <ion-fab
+    class="fab_action_buttons"
+    (click)="checkStack()"
+    cdkDragBoundary=".material_tabs"
+    cdkDrag
+  >
+    <ion-fab-button color="medium">
+      <mat-icon style="transform: scale(1.5)" svgIcon="tray"></mat-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="myGrid">
+    <mat-card>
+      <ion-item
+        *ngFor="let item of inventory$ | async"
+        matRipple
+        (click)="add(item)"
+      >
+        <ion-thumbnail>
+          <img [src]="item.imageUrl" />
+        </ion-thumbnail>
+        <ion-label>&nbsp;{{ item.name | uppercase }}</ion-label>
+        <span>stock: {{ item.stock }}</span>
+      </ion-item>
+    </mat-card>
+  </div>
+</div>

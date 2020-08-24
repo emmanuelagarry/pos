@@ -1,0 +1,60 @@
+<ion-header>
+  <mat-toolbar color="warn">
+    <mat-toolbar-row> </mat-toolbar-row>
+    <mat-toolbar-row>Login</mat-toolbar-row>
+  </mat-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="auth_content">
+    <mat-card class="login_form_card">
+      <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            type="email"
+            placeholder="Placeholder"
+          />
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            formControlName="password"
+            [type]="hide ? 'text' : 'password' "
+            type="password"
+          />
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button
+          type="submit"
+          color="warn"
+          [disabled]="!loginForm.valid"
+          mat-raised-button
+        >
+          Login
+        </button>
+      </form>
+      <br />
+      <br />
+      <mat-progress-bar
+        *ngIf="connection"
+        mode="indeterminate"
+      ></mat-progress-bar>
+    </mat-card>
+  </div>
+</ion-content>

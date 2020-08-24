@@ -1,0 +1,104 @@
+<div *ngIf="formType === 'category'">
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <ion-icon name="add"></ion-icon>
+      </ng-template>
+
+      <form
+        [formGroup]="categoryForm"
+        (ngSubmit)="addToCategory(categoryForm.value)"
+      >
+        <mat-form-field>
+          <input matInput formControlName="name" placeholder="Category Name" />
+        </mat-form-field>
+        <button [disabled]="!categoryForm.valid" mat-stroked-button>
+          Submit
+        </button>
+      </form>
+    </mat-tab>
+    <!-- <mat-tab label="Categories">
+      <ion-item *ngFor="let item of category$ | async">
+        <ion-text>{{ item }}</ion-text>
+      </ion-item>
+    </mat-tab> -->
+  </mat-tab-group>
+</div>
+
+<div *ngIf="formType === 'food'">
+  <mat-horizontal-stepper linear>
+    <mat-step [stepControl]="nameForm">
+      <form [formGroup]="nameForm">
+        <ng-template matStepLabel>Name</ng-template>
+        <mat-form-field>
+          <input matInput formControlName="name" placeholder="Name" />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="price"
+            placeholder="Price"
+            type="number"
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-select
+            formControlName="category"
+            placeholder="Select Food Category"
+          >
+            <mat-option
+              [value]="option"
+              *ngFor="let option of category$ | async"
+              >{{ option }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-icon-button matStepperNext>
+            NEXT <mat-icon>navigate_next</mat-icon>
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <form [formGroup]="foodForm" (ngSubmit)="addFood(foodForm.value)">
+        <mat-form-field>
+          <mat-select formControlName="select" placeholder="Add food item">
+            <mat-option [value]="option" *ngFor="let option of chow$ | async">{{
+              option
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button [disabled]="!foodForm.valid" mat-icon-button>
+          Add +
+        </button>
+      </form>
+      <div>
+        <mat-chip-list>
+          <mat-chip *ngFor="let item of chiplist; index as i">
+            {{ item }}
+            <mat-icon matChipRemove (click)="removeFood(i)">cancel</mat-icon>
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <br /><br />
+
+      <div>
+        <app-dropzone (fileUrl)="fileUrl($event)"></app-dropzone>
+      </div>
+
+      <br />
+      <div>
+        <button
+          [disabled]="chiplist.length === 0"
+          (click)="finish()"
+          mat-raised-button
+        >
+          Finish
+        </button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

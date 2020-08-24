@@ -1,0 +1,13 @@
+.bigwrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.buttonwrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.numberPad {
+  padding: 10px;
+}

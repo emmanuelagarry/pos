@@ -1,0 +1,46 @@
+<ion-header>
+  <mat-toolbar color="warn">
+    <mat-toolbar-row> </mat-toolbar-row>
+    <mat-toolbar-row class="tool_bar_flex">
+      <span class="spacer"></span>
+
+      <button
+        class="toolbar__button"
+        mat-raised-button
+        (click)="openCartModal()"
+      >
+        View Cart <mat-icon>shopping_cart</mat-icon>
+      </button>
+      <!-- <button
+        class="push_other_left"
+        mat-raised-button
+        [routerLink]="['/tab/payment']"
+      >
+        <mat-icon>payment</mat-icon>
+      </button> -->
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <ion-searchbar
+    autocomplete="on"
+    (ionChange)="searchSortSubject$.next($event.target.value)"
+  ></ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <div class="bigwrapper">
+    <mat-card class="pos_card">
+      <ion-item
+        *ngFor="let item of sorted$ | async"
+        matRipple
+        (click)="addToArray(item)"
+      >
+        <ion-thumbnail>
+          <img [src]="item.imageUrl" />
+        </ion-thumbnail>
+        <ion-label>{{item.name }}</ion-label>
+        <ion-text>Price: {{item.price}}</ion-text>
+      </ion-item>
+    </mat-card>
+  </div>
+</ion-content>

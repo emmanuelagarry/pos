@@ -1,0 +1,8 @@
+{
+  "name": "sodyah",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

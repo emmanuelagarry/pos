@@ -1,0 +1,26 @@
+<div class="">
+  <div>
+    <form
+      [formGroup]="productForm"
+      (ngSubmit)="addToProduct(productForm.value)"
+    >
+      <mat-form-field>
+        <input formControlName="name" matInput placeholder="Name" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="stock"
+          type="number"
+          placeholder="stock"
+        />
+      </mat-form-field>
+
+      <br />
+      <app-dropzone (fileUrl)="fileUrl($event)"></app-dropzone>
+
+      <button [disabled]="!productForm.valid" mat-stroked-button>Submit</button>
+    </form>
+  </div>
+</div>

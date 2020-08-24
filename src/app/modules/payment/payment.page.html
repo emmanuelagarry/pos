@@ -1,0 +1,70 @@
+<ion-header>
+  <mat-toolbar color="warn">
+    <mat-toolbar-row> </mat-toolbar-row>
+    <mat-toolbar-row class="tool_bar_flex">
+      <button routerLink="/" routerDirection="back" mat-raised-button>
+        <mat-icon>arrow_back</mat-icon>
+        <span>Back to Order</span>
+      </button>
+      <span class="spacer"></span>
+      <button
+        [disabled]="!paymentTypeAnswer || !delivery"
+        mat-raised-button
+        (click)="tender()"
+      >
+        <span>Finish </span>
+        <mat-icon>done_outline</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ion-header>
+
+<ion-content>
+  <mat-card class="mat-card-as-comntainer">
+    <div style="width: 100%; display:flex">
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="promo()"
+        style="width: 80%; margin:auto"
+      >
+        Enter Promo Code
+      </button>
+    </div>
+    <br /><br />
+    <div>
+      <br /><br />
+      <p style="text-align: center;">Delivery?</p>
+      <div style="display:flex">
+        <mat-radio-group
+          style="margin: auto"
+          color="warn"
+          [(ngModel)]="delivery"
+          aria-label="Select an option"
+        >
+          <mat-radio-button value="y">Yes</mat-radio-button>
+          <mat-radio-button value="n">NO</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div>
+      <br /><br />
+      <mat-radio-group [(ngModel)]="paymentTypeAnswer" class="money">
+        <mat-card class="option_card" *ngFor="let paymentType of payment">
+          <mat-card-content>{{paymentType}}</mat-card-content>
+          <mat-card-actions>
+            <mat-radio-button
+              class="radio-circle"
+              color="warn"
+              [value]="paymentType"
+            >
+            </mat-radio-button>
+          </mat-card-actions>
+        </mat-card>
+        <!-- </mat-radio-button> -->
+      </mat-radio-group>
+    </div>
+
+    <div></div>
+  </mat-card>
+</ion-content>

@@ -1,0 +1,35 @@
+<div class="material_tabs">
+  <ion-fab class="fab_action_buttons" cdkDragBoundary=".material_tabs" cdkDrag>
+    <ion-fab-button (click)="openDialog()" color="medium">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <app-table
+    class="tab_table"
+    [source]="dataSource"
+    [tableColumn]="tableColumn"
+  >
+    <ng-template #optionTemplate let-element>
+      <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="editStock(element.name)"
+        >
+          Edit Stock<mat-icon>edit </mat-icon>
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button (click)="delete(element.name)">
+          Delete<mat-icon>delete</mat-icon>
+        </button>
+        <br />
+        <br />
+      </div>
+    </ng-template>
+  </app-table>
+</div>

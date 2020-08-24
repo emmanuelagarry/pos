@@ -1,0 +1,7 @@
+<form [formGroup]="stockForm" (ngSubmit)="submit(stockForm.value)">
+  <mat-form-field appearance="outline">
+    <mat-label>Enter amount of stock itens to be added</mat-label>
+    <input formControlName="number" matInput type="number" />
+  </mat-form-field>
+  <button mat-raised-button color="warn" type="submit">Submit</button>
+</form>

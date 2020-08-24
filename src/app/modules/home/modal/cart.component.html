@@ -1,0 +1,40 @@
+<ion-header>
+  <mat-toolbar (swipedown)="dismiss()" color="warn">
+    <mat-toolbar-row></mat-toolbar-row>
+    <mat-toolbar-row class="tool_bar_flex">
+      <button
+        mat-raised-button
+        (click)="dismiss()"
+        [routerLink]="['/tab/payment']"
+        [disabled]="(price | async) === 0"
+      >
+        CHECKOUT
+      </button>
+      <span class="spacer"></span>
+      <button mat-raised-button (click)="deleteAllfromCart()">
+        CLEAR <mat-icon>close</mat-icon>
+      </button>
+      <span class="spacer"> </span>
+
+      <ion-fab-button color="medium" (click)="dismiss()">
+        <mat-icon>close</mat-icon>
+      </ion-fab-button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ion-header>
+<ion-content>
+  <p style="text-align: center;">
+    {{ price | async | currency: 'NGN' }}
+  </p>
+  <br />
+  <ion-item *ngFor="let item of cart$ | async">
+    <ion-thumbnail>
+      <img [src]="item.imageUrl" />
+    </ion-thumbnail>
+    <ion-label>{{ item.name }}</ion-label>
+    <ion-text>{{ item.price }} &nbsp;</ion-text>
+    <button mat-icon-button (click)="deleteFromCart(item.observableId)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </ion-item>
+</ion-content>

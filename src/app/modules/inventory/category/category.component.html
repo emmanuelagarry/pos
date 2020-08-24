@@ -1,0 +1,22 @@
+<div class="material_tabs">
+  <ion-fab class="fab_action_buttons" cdkDragBoundary=".material_tabs" cdkDrag>
+    <ion-fab-button (click)="openDialog()" color="medium">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <mat-card style="margin: auto; width:95%">
+    <ion-list>
+      <ion-item-sliding *ngFor="let item of category$ | async">
+        <ion-item-options side="start">
+          <ion-item-option color="danger">
+            <button mat-icon-button (click)="delete(item)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </ion-item-option>
+        </ion-item-options>
+        <ion-item>{{ item | uppercase }}</ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </mat-card>
+</div>

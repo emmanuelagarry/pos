@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    
+
+    <ion-button routerLink="/" routerDirection="back"  slot="start"color="medium" size="small"  >
+      <ion-icon name="arrow-round-back"></ion-icon>  Back 
+    </ion-button>
+
+
+    
+    <ion-title>payment</ion-title>
+    <ion-button slot="end"size="small" color="medium" > Validate  
+      <ion-icon name="arrow-round-forward"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="main_content">
+  <div>
+    <br><br>
+  <ion-list >
+  <ion-item  class="ion_item" *ngFor="let item of payment" >
+    {{item}}
+  </ion-item>
+</ion-list>
+
+</div>
+
+
+<div>
+
+  <div class="column">
+    <ion-text class="textItem">
+     <h1> &#8358; 2,0000</h1>
+          <!-- <sub>This price doesn't change yet</sub> -->
+    </ion-text>
+    <br>  <br> <br> <br> <br>
+  </div>
+  <div class="trackPad">
+                 <ion-button  color="dark"  size="small" fill="outline" class="number_pad">1</ion-button>
+                  <ion-button  color="dark" size="small" fill="outline"  class="number_pad">2</ion-button>
+                  <ion-button  color="dark" size="small" fill="outline"  class="number_pad">3</ion-button>
+                  <ion-button  color="dark"  size="small" fill="outline" class="number_pad"><small>+10</small></ion-button>
+                <ion-button   color="dark" size="small" fill="outline" class="number_pad">4</ion-button>
+                  <ion-button color="dark"  size="small" fill="outline"  class="number_pad">5</ion-button>
+                  <ion-button color="dark"  size="small" fill="outline"  class="number_pad">6</ion-button>
+                  <ion-button color="dark"  size="small" fill="outline"  class="number_pad"><small>+20</small></ion-button>
+                <ion-button  color="dark"  size="small" fill="outline" class="number_pad">7</ion-button>
+                  <ion-button color="dark"   size="small" fill="outline" class="number_pad">8</ion-button>
+                  <ion-button color="dark"   size="small" fill="outline" class="number_pad">9</ion-button>
+                  <ion-button color="dark"    size="small" fill="outline" class="number_pad">+50</ion-button>
+                <ion-button  color="dark"  size="small" fill="outline" class="number_pad">C</ion-button>
+                  <ion-button color="dark"   size="small" fill="outline" class="number_pad">0</ion-button>
+                  <ion-button color="dark"   size="small" fill="outline" class="number_pad">.</ion-button>
+                  <ion-button color="dark"  size="small" fill="outline" class="number_pad"><ion-icon name="backspace"></ion-icon></ion-button>
+  
+
+              </div>
+</div>
+</div>
+</ion-content>

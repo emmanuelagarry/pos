@@ -1,0 +1,101 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import '~@ionic/angular/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.mat-tab-body-wrapper {
+  flex-grow: 1;
+}
+
+.material_tabs {
+  height: 100%;
+  overflow-y: scroll;
+
+  margin: auto;
+  display: flex;
+  flex-direction: column !important;
+}
+
+.auth_content {
+  height: 100%;
+
+  display: flex;
+}
+mat-tab-group {
+  height: 100% !important;
+  // overflow-y: scroll;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card img {
+  margin: auto;
+}
+
+.make_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.make_row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.transp {
+  background-color: lightgray;
+}
+
+.tool_bar_flex {
+  display: flex;
+  flex: auto;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.fab_action_buttons {
+  margin-top: 20px;
+  margin-left: 80vw;
+}
+.tab_table {
+  margin: auto;
+  width: 100%;
+}
+
+.hide {
+  display: none;
+}

@@ -1,0 +1,52 @@
+<ion-header>
+  <mat-toolbar color="warn">
+    <mat-toolbar-row> </mat-toolbar-row>
+    <mat-toolbar-row class="tool_bar_flex">
+      <span class="spacer"></span>
+
+      <button
+        class="toolbar__button"
+        mat-raised-button
+        (click)="openCartModal()"
+      >
+        View Cart <mat-icon>shopping_cart</mat-icon>
+      </button>
+      <button
+        class="push_other_left"
+        mat-raised-button
+        [routerLink]="['/tab/payment']"
+      >
+        <mat-icon>payment</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Gender</ion-label>
+    <ion-select placeholder="Select One">
+      <ion-select-option value="f">Female</ion-select-option>
+      <ion-select-option value="m">Male</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-searchbar
+    autocomplete="on"
+    (ionChange)="searchSortSubject$.next($event.target.value)"
+  ></ion-searchbar>
+
+  <ion-item
+    (swipedown)="addToArray(item)"
+    *ngFor="let item of sorted$ | async"
+    (click)="addToArray(item)"
+  >
+    <ion-thumbnail>
+      <img
+        src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+      />
+    </ion-thumbnail>
+    <ion-label>{{item.name}}</ion-label>
+    <ion-text>Price: {{item.price}}</ion-text>
+  </ion-item>
+</ion-content>

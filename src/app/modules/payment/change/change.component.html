@@ -1,0 +1,52 @@
+<div class="bigwrapper">
+  <ion-fab-button color="medium" (click)="closeBottomSheet()">
+    <mat-icon>close</mat-icon>
+  </ion-fab-button>
+  <br />
+  <br />
+  <br />
+  <button
+    mat-raised-button
+    color="warn"
+    style="width: 100%"
+    (click)="payCustomer()"
+    [disabled]="(change$ | async) < 0"
+  >
+    Finish
+  </button>
+
+  <h3>Total: {{ total$ | async | currency: 'NGN':'symbol' }}</h3>
+  <p *ngIf="(change$ | async) >= 0 as change; else elseBlock">
+    Pay the customer: &nbsp; {{ change$ | async | currency: 'NGN':'symbol' }}
+  </p>
+  <ng-template #elseBlock>
+    <p>..........</p>
+  </ng-template>
+  <mat-form-field appearance="outline" style="width: 100%">
+    <mat-label>Tender</mat-label>
+    <input matInput [value]="tender$ | async" readonly />
+  </mat-form-field>
+
+  <div class="buttonwrapper">
+    <button
+      mat-raised-button
+      class="numberPad"
+      *ngFor="let num of numbers"
+      (click)="press(num)"
+    >
+      {{ num }}
+    </button>
+    <button mat-button class="numberPad" (click)="press('.')">.</button>
+    <button mat-button class="numberPad" mat-raised-button (click)="press('0')">
+      0
+    </button>
+    <button
+      mat-button
+      class="numberPad"
+      mat-raised-button
+      (click)="press('backspace')"
+    >
+      <mat-icon>backspace</mat-icon>
+    </button>
+  </div>
+</div>

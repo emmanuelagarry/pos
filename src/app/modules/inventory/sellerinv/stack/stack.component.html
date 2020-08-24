@@ -1,0 +1,30 @@
+<ion-header>
+  <mat-toolbar color="warn">
+    <mat-toolbar-row></mat-toolbar-row>
+    <mat-toolbar-row style="display: flex; justify-content:space-between">
+      <ion-fab-button (click)="close()" color="medium">
+        <mat-icon>close</mat-icon>
+      </ion-fab-button>
+
+      <button mat-raised-button (click)="clear()">Clear</button>
+
+      <button mat-raised-button (click)="finish()">Finish</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ion-header>
+<ion-content>
+  <br />
+  <br />
+  <div style="margin: auto">
+    <mat-card
+      style="width: 95%; margin:2px"
+      *ngFor="let item of inventoryAdd$ | async"
+    >
+      <mat-card-content>
+        <mat-card-header></mat-card-header>
+        <mat-card-subtitle>+ {{ item.amount }}</mat-card-subtitle>
+        <h6>{{ item.name }}</h6>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ion-content>

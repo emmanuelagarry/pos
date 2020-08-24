@@ -1,0 +1,43 @@
+// .push_other_left{
+//     margin-left: 50px;
+// }
+
+.top {
+  height: 20%;
+}
+.bigwrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.pos_card {
+  margin: auto;
+  width: 95%;
+}
+
+.menu_card {
+  width: 100px;
+  height: 100px;
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/testsadyah.appspot.com/o/1browser%20(1).jpg?alt=media&token=1bca65e9-0402-43f6-b8ca-602260590f2b');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.menu_card_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price_span {
+  justify-self: flex-end;
+  padding: 2px;
+  background-color: white;
+}
+
+.snack_bar_height {
+  height: 200px !important;
+  background-color: red($color: #000000);
+  color: red;
+}

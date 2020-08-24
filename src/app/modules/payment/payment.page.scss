@@ -1,0 +1,27 @@
+.money {
+  display: flex;
+  //   place-content: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  //   flex
+}
+
+.mat-card-as-comntainer {
+  width: 95%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.radio-circle {
+  color: transparent;
+}
+
+.option_card {
+  width: 140px !important;
+  height: 140px !important;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+}

@@ -1,0 +1,38 @@
+<div class="material_tabs">
+  <ion-fab
+    class="fab_action_buttons"
+    (click)="openDialog('food')"
+    cdkDragBoundary=".material_tabs"
+    cdkDrag
+  >
+    <ion-fab-button color="medium">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <app-table
+    class="tab_table"
+    [source]="dataSource"
+    [tableColumn]="tableColumn"
+  >
+    <ng-template #optionTemplate let-element>
+      <mat-list>
+        <mat-list-item>
+          <button mat-raised-button (click)="delete(element.name)">
+            Delete <mat-icon>delete </mat-icon>
+          </button>
+        </mat-list-item>
+        <br />
+
+        <mat-list-item *ngFor="let combo of element.combo">
+          <mat-icon
+            style="transform: scale(2)"
+            svgIcon="food"
+            mat-list-icon
+          ></mat-icon>
+          <h4 mat-line>{{ combo }}</h4>
+        </mat-list-item>
+      </mat-list>
+    </ng-template>
+  </app-table>
+</div>

@@ -1,0 +1,90 @@
+<div style="display: flex; width: 100%; height: 100%">
+  <div style=" margin: auto; display:flex; flex-direction:column">
+    <div style="display: flex; justify-content: space-between">
+      <div>
+        <div *ngIf="cashinfo$ | async as info">
+          <span>Cashier: {{ info.name }}</span>
+          <br />
+          <span>Phone: {{ info.phone }}</span>
+          <br />
+          <span>Order: {{ info.orderNo }}</span>
+          <br />
+          <span>Date: {{ info.date }}</span>
+        </div>
+      </div>
+      <div>
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/testsadyah.appspot.com/o/WhatsApp%20Image%202020-03-10%20at%2013.32.24.jpeg?alt=media&token=d22f0217-ff16-41cd-9dd7-3e9919dc13c0"
+          alt=""
+          width="100px"
+          #screen
+        />
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <div
+      style="display: flex; flex-direction:column; justify-items:flex-end; max-width: 350px;"
+    >
+      <span style="text-align:right;">SOOYAH BISTRO</span>
+
+      <span style="text-align:right;">info@sooyahbistro.com</span>
+    </div>
+
+    <table cdk-table [dataSource]="dataSource">
+      <ng-container cdkColumnDef="name">
+        <th cdk-header-cell *cdkHeaderCellDef>Name</th>
+
+        <td cdk-cell *cdkCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="qty">
+        <th cdk-header-cell *cdkHeaderCellDef>QTY</th>
+
+        <td cdk-cell *cdkCellDef="let element">{{ element.qty }}</td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="price">
+        <th cdk-header-cell *cdkHeaderCellDef>PRICE</th>
+
+        <td cdk-cell *cdkCellDef="let element">
+          {{ element.price | currency: 'NGN' }}
+        </td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="value">
+        <th cdk-header-cell *cdkHeaderCellDef>Value</th>
+
+        <td cdk-cell *cdkCellDef="let element">
+          {{ element.value | currency: 'NGN' }}
+        </td>
+      </ng-container>
+
+      <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+      <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <div id="download">
+      <img #myReceipt />
+      <a #link></a>
+
+      <br />
+      <br />
+      <button mat-raised-button (click)="print()" style="font-weight: bold;">
+        Print
+      </button>
+      &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button
+        style="font-weight: bold;"
+        mat-raised-button
+        color="warn"
+        (click)="dismiss()"
+      >
+        NextOrder
+      </button>
+      <a #link>link</a>
+    </div>
+  </div>
+</div>

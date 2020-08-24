@@ -1,0 +1,8 @@
+<input type="file" (change)="uploadFile($event.target.files)" />
+<br /><br /><br />
+<!-- <ng-container *ngIf="uploadSnapshot$ | async"> -->
+<ng-container *ngIf="uploadPercent$ | async as pct">
+  <mat-progress-bar mode="determinate" [value]="pct"></mat-progress-bar>
+  <p style="text-align: center;">{{ pct }}%</p>
+</ng-container>
+<!-- </ng-container> -->

@@ -1,0 +1,33 @@
+.main_stuff {
+  display: flex;
+  justify-content: space-between;
+}
+.trackPad {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.number_pad {
+  // padding: 15px
+}
+
+.big_icon {
+  font-size: 64px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.coupon {
+  margin: auto;
+  width: 200px;
+}
