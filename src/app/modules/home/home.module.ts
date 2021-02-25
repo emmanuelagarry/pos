@@ -20,7 +20,7 @@ import { UploadFacade } from 'src/app/facades/upload.facade'
 import { AuthGuard } from 'src/app/guards/auth.guard'
 import { SignupGuard } from 'src/app/guards/signup.guard'
 import { MatProgressBarModule } from '@angular/material/progress-bar'
-import { MatSnackBarModule } from '@angular/material'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { NgfirestoreService } from 'src/app/services/firestore/ngfirestore.service'
 
 const routes: Routes = [

@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { IonicModule } from '@ionic/angular'
 
 import { ProfilePage } from './profile.page'
-import { MatButtonModule } from '@angular/material'
+import { MatButtonModule } from '@angular/material/button'
 import { MatToolbarModule } from '@angular/material/toolbar'
 
 const routes: Routes = [

@@ -16,7 +16,7 @@ import {
   HammerGestureConfig,
   HAMMER_GESTURE_CONFIG,
 } from '@angular/platform-browser'
-import { MatSnackBarModule, MatSnackBar } from '@angular/material'
+import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar'
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = {

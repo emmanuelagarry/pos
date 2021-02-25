@@ -4,7 +4,10 @@ import { PaymentPage } from './../payment.page'
 import { Subject, combineLatest, Subscription } from 'rxjs'
 
 import { Component, OnInit, Inject } from '@angular/core'
-import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material'
+import {
+  MatBottomSheetRef,
+  MAT_BOTTOM_SHEET_DATA,
+} from '@angular/material/bottom-sheet'
 import { scan, map, startWith, shareReplay, take } from 'rxjs/operators'
 
 @Component({

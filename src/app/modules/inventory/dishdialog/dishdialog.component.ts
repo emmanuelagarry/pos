@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core'
 import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs'
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material'
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { Category } from 'src/app/models/category.model'
 
 @Component({

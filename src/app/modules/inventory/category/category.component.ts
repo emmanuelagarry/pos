@@ -3,7 +3,7 @@ import { Observable } from 'rxjs'
 
 import { PouchFacade } from 'src/app/facades/facade.pouch'
 import { DishdialogComponent } from '../dishdialog/dishdialog.component'
-import { MatDialog } from '@angular/material'
+import { MatDialog } from '@angular/material/dialog'
 
 @Component({
   selector: 'app-category',

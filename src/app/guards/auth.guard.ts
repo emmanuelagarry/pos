@@ -19,6 +19,7 @@ export class AuthGuard implements CanActivate {
   ): Observable<boolean> | boolean {
     return this.auth.credential$.pipe(
       map(credential => {
+        console.log({ credential })
         if (credential) {
           if (
             credential.credential === 'admin' ||

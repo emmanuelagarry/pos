@@ -1,4 +1,4 @@
-import { MatSnackBar } from '@angular/material'
+import { MatSnackBar } from '@angular/material/snack-bar'
 import { ObservableService } from '../../services/ObservableService.service'
 import { Component, OnInit } from '@angular/core'
 import { MenuController } from '@ionic/angular'

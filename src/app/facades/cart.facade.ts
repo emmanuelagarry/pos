@@ -6,7 +6,7 @@ import { BehaviorSubject, combineLatest } from 'rxjs'
 
 import { Injectable } from '@angular/core'
 import { map, shareReplay } from 'rxjs/operators'
-import { MatSnackBar } from '@angular/material'
+import { MatSnackBar } from '@angular/material/snack-bar'
 
 @Injectable({ providedIn: 'root' })
 export class CartFacade {

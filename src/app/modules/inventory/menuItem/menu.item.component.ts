@@ -3,7 +3,7 @@ import { PouchFacade } from 'src/app/facades/facade.pouch'
 import { Observable } from 'rxjs'
 import { DishdialogComponent } from '../dishdialog/dishdialog.component'
 import { Component, OnInit } from '@angular/core'
-import { MatDialog } from '@angular/material'
+import { MatDialog } from '@angular/material/dialog'
 
 import { map } from 'rxjs/operators'
 import { DomSanitizer } from '@angular/platform-browser'

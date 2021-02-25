@@ -7,17 +7,15 @@ import { Routes, RouterModule } from '@angular/router'
 import { IonicModule } from '@ionic/angular'
 
 import { PosPage } from './pos.page'
-import {
-  MatCardModule,
-  MatGridListModule,
-  MatToolbarModule,
-  MatListModule,
-  MatButtonModule,
-  MatIconModule,
-  MatFormFieldModule,
-  MatSelectModule,
-  MatRippleModule,
-} from '@angular/material'
+import { MatButtonModule } from '@angular/material/button'
+import { MatCardModule } from '@angular/material/card'
+import { MatRippleModule } from '@angular/material/core'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatGridListModule } from '@angular/material/grid-list'
+import { MatIconModule } from '@angular/material/icon'
+import { MatListModule } from '@angular/material/list'
+import { MatSelectModule } from '@angular/material/select'
+import { MatToolbarModule } from '@angular/material/toolbar'
 import { ScrollingModule } from '@angular/cdk/scrolling'
 
 const routes: Routes = [

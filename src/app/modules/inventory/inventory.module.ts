@@ -17,24 +17,22 @@ import { IonicModule } from '@ionic/angular'
 
 import { InventoryPage } from './inventory.page'
 
-import {
-  MatInputModule,
-  MatFormFieldModule,
-  MatSelectModule,
-  MatDialogModule,
-  MatCardModule,
-  MatTabsModule,
-  MatButtonModule,
-  MatIconModule,
-  MatStepperModule,
-  MatChipsModule,
-  MatListModule,
-  MatToolbarModule,
-  MatGridListModule,
-  MatRippleModule,
-  MatSnackBarModule,
-  MatProgressSpinnerModule,
-} from '@angular/material'
+import { MatButtonModule } from '@angular/material/button'
+import { MatCardModule } from '@angular/material/card'
+import { MatChipsModule } from '@angular/material/chips'
+import { MatRippleModule } from '@angular/material/core'
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatGridListModule } from '@angular/material/grid-list'
+import { MatIconModule } from '@angular/material/icon'
+import { MatInputModule } from '@angular/material/input'
+import { MatListModule } from '@angular/material/list'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { MatSelectModule } from '@angular/material/select'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatStepperModule } from '@angular/material/stepper'
+import { MatTabsModule } from '@angular/material/tabs'
+import { MatToolbarModule } from '@angular/material/toolbar'
 
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { SellerinvComponent } from './sellerinv/sellerinv.component'

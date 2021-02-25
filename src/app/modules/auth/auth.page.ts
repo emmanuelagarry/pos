@@ -1,5 +1,5 @@
 import { SetlocationComponent } from './setlocation/setlocation.component'
-import { MatDialog } from '@angular/material'
+import { MatDialog } from '@angular/material/dialog'
 import { AuthService } from './../../services/auth/auth.service'
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { Component, OnInit } from '@angular/core'

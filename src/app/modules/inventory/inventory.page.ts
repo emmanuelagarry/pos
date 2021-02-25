@@ -1,5 +1,5 @@
 import { ObservableService } from './../../services/ObservableService.service'
-import { MatDialog } from '@angular/material'
+import { MatDialog } from '@angular/material/dialog'
 import { map, tap, take } from 'rxjs/operators'
 import { AuthService } from './../../services/auth/auth.service'
 import { Component, OnInit } from '@angular/core'

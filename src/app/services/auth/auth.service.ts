@@ -1,4 +1,3 @@
-import { SooyahBistroPouchDb } from './../../pouchdb/pouchdb.sooyah-bistro'
 import { map, catchError, shareReplay, switchMap } from 'rxjs/operators'
 import { AngularFirestore } from '@angular/fire/firestore'
 import { Injectable } from '@angular/core'
@@ -26,23 +25,23 @@ export class AuthService {
       return items
     }),
     shareReplay(),
-    catchError(() => [null])
+    catchError(error => {
+      console.error(error)
+      return [null]
+    })
   )
 
   checkAuthState$ = this.auth.authState.pipe()
 
   async signInWithEmailAndpassword({ email, password }) {
     try {
-      const user = await this.auth.auth.signInWithEmailAndPassword(
-        email,
-        password
-      )
+      const user = await this.auth.signInWithEmailAndPassword(email, password)
       return true
     } catch (error) {}
   }
 
   logoutUser() {
-    this.auth.auth.signOut()
+    this.auth.signOut()
   }
 
   checkForPromo(code: string) {

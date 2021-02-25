@@ -2,7 +2,7 @@ import { CartFacade } from 'src/app/facades/cart.facade'
 import { AuthService } from 'src/app/services/auth/auth.service'
 import { BehaviorSubject } from 'rxjs'
 import { Component, OnInit } from '@angular/core'
-import { MatDialogRef } from '@angular/material'
+import { MatDialogRef } from '@angular/material/dialog'
 import { PaymentPage } from '../payment.page'
 import { take, catchError } from 'rxjs/operators'
 

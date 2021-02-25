@@ -15,7 +15,6 @@
     </mat-tab>
 
     <mat-tab label="Menu Items" [disabled]="!(disable$ | async)">
-      <!-- Using dish component template in dish tab -->
       <ng-template matTabContent>
         <app-dish></app-dish>
       </ng-template>

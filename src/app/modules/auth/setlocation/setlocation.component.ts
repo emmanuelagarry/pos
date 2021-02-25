@@ -2,7 +2,7 @@ import { AuthPage } from './../auth.page'
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { Component, OnInit } from '@angular/core'
 import { SooyahBistroPouchDb } from 'src/app/pouchdb/pouchdb.sooyah-bistro'
-import { MatDialogRef } from '@angular/material'
+import { MatDialogRef } from '@angular/material/dialog'
 function noWhitespaceValidator(control: FormControl) {
   const isWhitespace = (control.value || '').trim().length === 0
   const isValid = !isWhitespace
