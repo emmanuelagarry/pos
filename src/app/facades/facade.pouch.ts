@@ -27,8 +27,6 @@ export class PouchFacade {
 
   subject$ = new BehaviorSubject('')
 
-  private freeMemory$ = new BehaviorSubject(false)
-
   order$: Observable<SooyahOrder[]> = from(this.pouch.getOrderPouch()).pipe(
     map(items => {
       return items.rows.map(data => {
@@ -57,20 +55,21 @@ export class PouchFacade {
       catchError(() => [])
     )
 
-  inventoryObservable$ = this.subject$
-    .asObservable()
-    .pipe(switchMap(change => from(this.pouch.getInventoryItemsPouch())))
-    .pipe(
-      map(
-        items =>
-          items.rows.map(item => ({
-            name: item.doc.name,
-            stock: item.doc.stock,
-            imageUrl: item.doc.imgUrl,
-          })),
+  inventoryObservable$ = this.subject$.asObservable().pipe(
+    switchMap(change => from(this.pouch.getInventoryItemsPouch())),
+    map(items =>
+      items.rows.map(
+        item => ({
+          name: item.doc.name,
+          stock: item.doc.stock,
+          imageUrl: item.doc.imgUrl,
+          category: item.doc.category,
+          price: item.doc.price,
+        }),
         catchError(() => [])
       )
     )
+  )
 
   meuItemObservable$ = this.subject$
     .asObservable()

@@ -24,7 +24,6 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-
     MatButtonModule,
     MatIconModule,
     CdkTableModule,

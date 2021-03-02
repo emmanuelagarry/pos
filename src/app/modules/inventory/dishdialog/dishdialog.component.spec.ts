@@ -1,27 +1,33 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  waitForAsync,
+} from '@angular/core/testing'
 
-import { DishdialogComponent } from './dishdialog.component';
+import { DishdialogComponent } from './dishdialog.component'
 
 describe('DishdialogComponent', () => {
-  let component: DishdialogComponent;
-  let fixture: ComponentFixture<DishdialogComponent>;
+  let component: DishdialogComponent
+  let fixture: ComponentFixture<DishdialogComponent>
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ DishdialogComponent ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [DishdialogComponent],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      }).compileComponents()
     })
-    .compileComponents();
-  }));
+  )
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DishdialogComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(DishdialogComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

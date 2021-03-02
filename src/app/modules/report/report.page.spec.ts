@@ -1,27 +1,28 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 
-import { ReportPage } from './report.page';
+import { ReportPage } from './report.page'
 
 describe('ReportPage', () => {
-  let component: ReportPage;
-  let fixture: ComponentFixture<ReportPage>;
+  let component: ReportPage
+  let fixture: ComponentFixture<ReportPage>
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ReportPage ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [ReportPage],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      }).compileComponents()
     })
-    .compileComponents();
-  }));
+  )
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReportPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(ReportPage)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

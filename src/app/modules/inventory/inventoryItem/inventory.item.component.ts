@@ -12,17 +12,10 @@ import { PouchFacade } from 'src/app/facades/facade.pouch'
   styleUrls: ['./inventory.item.component.scss'],
 })
 export class InventoryItemComponent implements OnInit {
-  tableColumn = ['name', 'stock']
+  tableColumn = ['name', 'stock', 'price', 'category']
   dataSource: Observable<any[]>
   constructor(private dialog: MatDialog, private pouchFacade: PouchFacade) {
-    this.dataSource = this.pouchFacade.inventoryObservable$.pipe(
-      map(items =>
-        items.map(item => ({
-          name: item.name,
-          stock: item.stock,
-        }))
-      )
-    )
+    this.dataSource = this.pouchFacade.inventoryObservable$
   }
 
   ngOnInit() {}

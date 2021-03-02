@@ -31,6 +31,11 @@ export class SooyahBistroPouchDb {
     //   },
     // }
     // this.db.put(designDoc)
+    // this.db.destroy().then(() => {
+    //   alert('destroyed')
+    // }).catch(() => {
+    //   alert('error')
+    // })
   }
 
   createDesignDoc(docType: string, mapFunction) {
@@ -118,34 +123,24 @@ export class SooyahBistroPouchDb {
     })
   }
 
-  putOrderPouch(item, payment: string, delivery: string, timestamp: Date) {
-    if (!this.location) {
-      this.db
-        .get<Location>('location')
-        .then(local => {
-          const doc: SooyahOrder = {
-            _id: `order${timestamp}`,
-            cart: item,
-            docType: 'order',
-            payment,
-            delivery,
-            timestamp,
-            location: local.name,
-          }
-          this.db.put(doc).catch(err => console.log(err))
-        })
-        .catch()
-    } else {
-      const doc: SooyahOrder = {
-        _id: `order${timestamp}`,
-        cart: item,
-        docType: 'order',
-        payment,
-        delivery,
-        timestamp,
-        location: this.location,
-      }
-      this.db.put(doc).catch(err => console.log(err))
+  async putOrderPouch(
+    item,
+    payment: string,
+    delivery: string,
+    timestamp: Date
+  ) {
+    const doc: SooyahOrder = {
+      _id: `order${timestamp}`,
+      cart: item,
+      docType: 'order',
+      payment,
+      delivery,
+      timestamp,
+    }
+    try {
+      await this.db.put(doc)
+    } catch (error) {
+      console.log({ error })
     }
   }
 

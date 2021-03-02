@@ -15,7 +15,10 @@ import {
   distinctUntilChanged,
   debounceTime,
   catchError,
+  switchMap,
+  filter,
 } from 'rxjs/operators'
+import { Item } from 'ionic-angular'
 
 @Component({
   selector: 'app-pos',
@@ -36,18 +39,7 @@ export class PosPage implements OnInit {
     private carftFacade: CartFacade,
     public modalController: ModalController,
     public toastController: ToastController
-  ) {
-    this.menu$ = this.pouchFacade.meuItemObservable$.pipe(
-      map(items =>
-        items.map(item => ({
-          name: item.name,
-          combo: item.combo,
-          price: item.price,
-          imageUrl: item.imageUrl,
-        }))
-      )
-    )
-  }
+  ) {}
 
   searchSortSubject$ = new BehaviorSubject<string>('')
   private searchSort$ = this.searchSortSubject$.asObservable().pipe(
@@ -64,21 +56,13 @@ export class PosPage implements OnInit {
       }))
     )
   )
-  sorted$ = combineLatest([this.searchSort$, this.unsorted$]).pipe(
-    map(([searchString, menu]) => {
-      if (searchString.trim()) {
-        const chow = menu.filter(items =>
-          items.name
-            .toLowerCase()
-            .trim()
-            .includes(searchString.toLowerCase())
-        )
-        return chow
-      }
-      return menu
+  sorted$ = this.searchSortSubject$.pipe(
+    switchMap(search => {
+      return this.pouchFacade.inventoryObservable$.pipe(
+        map(item => item.filter(a => a.name.startsWith(search)))
+      )
     })
   )
-
   ngOnInit() {}
 
   async openCartModal() {

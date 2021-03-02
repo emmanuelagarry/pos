@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "sadyah-ccef8",
-    "dev": "testsadyah"
+    "dev": "testsadyah",
+    "okoye": "inventory-application-db"
   }
 }

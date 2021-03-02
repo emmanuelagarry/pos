@@ -6,7 +6,7 @@ describe('NgfirestoreService', () => {
   beforeEach(() => TestBed.configureTestingModule({}))
 
   it('should be created', () => {
-    const service: NgfirestoreService = TestBed.get(NgfirestoreService)
+    const service: NgfirestoreService = TestBed.inject(NgfirestoreService)
     expect(service).toBeTruthy()
   })
 })

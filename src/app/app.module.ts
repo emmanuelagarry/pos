@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { Injectable, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { RouteReuseStrategy } from '@angular/router'
 
@@ -18,6 +18,7 @@ import {
 } from '@angular/platform-browser'
 import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar'
 
+@Injectable()
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = {
     swipe: { direction: Hammer.DIRECTION_ALL },

@@ -1,4 +1,10 @@
-import { Directive, Output, EventEmitter, HostListener } from '@angular/core'
+import {
+  Directive,
+  Output,
+  EventEmitter,
+  HostListener,
+  Injectable,
+} from '@angular/core'
 
 @Directive({
   selector: '[appHammertime]',

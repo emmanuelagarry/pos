@@ -17,7 +17,6 @@ export class ReportPage implements OnInit {
     'price',
     'payment',
     'delivery',
-    'location',
   ]
   tableColumnLocalExpense: string[] = ['date', 'name', 'type', 'amount']
   constructor(

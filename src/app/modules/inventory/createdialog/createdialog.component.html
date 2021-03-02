@@ -13,8 +13,28 @@
           matInput
           formControlName="stock"
           type="number"
-          placeholder="stock"
+          placeholder="Stock"
         />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="price"
+          type="number"
+          placeholder="Price"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option
+            *ngFor="let category of categories$ | async"
+            [value]="category"
+            >{{ category | uppercase }}</mat-option
+          >
+        </mat-select>
       </mat-form-field>
 
       <br />

@@ -3,5 +3,7 @@ export interface InventoryItem {
   name: string
   stock: number
   imgUrl?: string
+  price: string
+  category: string
   docType: 'inventoryItem'
 }

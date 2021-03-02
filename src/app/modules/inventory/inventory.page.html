@@ -8,18 +8,19 @@
 <ion-content>
   <!-- Using angular material tab with dynamic height property -->
   <mat-tab-group color="warn" dynamicHeight>
-    <mat-tab label="INV">
+    <!-- <mat-tab label="INV">
       <ng-template matTabContent>
         <app-sellerinv></app-sellerinv>
       </ng-template>
     </mat-tab>
 
     <mat-tab label="Menu Items" [disabled]="!(disable$ | async)">
+    
       <ng-template matTabContent>
         <app-dish></app-dish>
       </ng-template>
-    </mat-tab>
-    <mat-tab label="INV(ADMIN)" [disabled]="!(disable$ | async)">
+    </mat-tab> -->
+    <mat-tab label="INV" [disabled]="!(disable$ | async)">
       <!-- Using food component template in foods tab -->
       <app-food></app-food>
     </mat-tab>
