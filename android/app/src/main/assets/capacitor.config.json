@@ -1,0 +1,7 @@
+{
+  "appId": "com.inventory.app",
+  "appName": "inventory",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

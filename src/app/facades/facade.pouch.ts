@@ -109,6 +109,10 @@ export class PouchFacade {
     this.pouch.putInventoryItemPouch(items)
   }
 
+  updateInventoryAfterBuying(id: string, decrementby: number) {
+    return this.pouch.updateItemPouch(id, decrementby)
+  }
+
   putMenuItem(items: MenuItem) {
     this.pouch.putMenuItemsPouch(items)
   }

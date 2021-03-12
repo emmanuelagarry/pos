@@ -85,6 +85,15 @@ export class SooyahBistroPouchDb {
     }
   }
 
+  async updateItemPouch(id: string, decrementBy: number) {
+    const doc = await this.db.get<InventoryItem>(id)
+    const newStock = doc.stock - decrementBy
+    return this.db.put({
+      ...doc,
+      stock: newStock,
+    })
+  }
+
   putCategoryItemPouch(item: Category) {
     const doc: Category = {
       _id: `category${item.name}`,
@@ -117,7 +126,7 @@ export class SooyahBistroPouchDb {
   async decrementMenuItems(id: string, decrementBy: number) {
     const doc = await this.db.get<InventoryItem>(id)
     const newStock = doc.stock - decrementBy
-    this.db.put({
+    return this.db.put({
       ...doc,
       stock: newStock,
     })

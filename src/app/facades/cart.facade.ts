@@ -73,7 +73,7 @@ export class CartFacade {
     this.store.next(this.cartItems)
   }
 
-  checkout(payment: string, delivery: string) {
+  async checkout(payment: string, delivery: string) {
     this.paymentTypeAndDelivery.next({ payment, delivery })
     const timestamp = new Date()
     this.time.next(timestamp)
@@ -98,14 +98,18 @@ export class CartFacade {
       final = final.filter(name => name.name !== '')
 
       try {
-        final.forEach(async item => {
-          const finish = await this.poucDB.decrementMenuItems(
+        for (const item of final) {
+          await this.poucDB.decrementMenuItems(
             `inventoryItem${item.name}`,
             item.count
           )
-        })
-
-        this.poucDB.putOrderPouch(this.cartItems, payment, delivery, timestamp)
+        }
+        await this.poucDB.putOrderPouch(
+          this.cartItems,
+          payment,
+          delivery,
+          timestamp
+        )
       } catch (err) {
         console.log(err)
       }
