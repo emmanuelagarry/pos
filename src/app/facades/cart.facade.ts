@@ -78,9 +78,7 @@ export class CartFacade {
     const timestamp = new Date()
     this.time.next(timestamp)
 
-    const array = this.cartItems
-      .reduce((acc, val) => acc.concat(val.combo), [])
-      .map(value => ({ name: value, count: 1 }))
+    const array = this.cartItems.map(item => ({ name: item.name, count: 1 }))
 
     let final = array.reduce(
       (pv, cv) => {

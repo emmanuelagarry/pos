@@ -16,7 +16,6 @@ import {
 } from '@angular/fire/firestore'
 import { AngularFireStorageModule } from '@angular/fire/storage'
 
-import { UploadFacade } from 'src/app/facades/upload.facade'
 import { AuthGuard } from 'src/app/guards/auth.guard'
 import { SignupGuard } from 'src/app/guards/signup.guard'
 import { MatProgressBarModule } from '@angular/material/progress-bar'
@@ -150,7 +149,6 @@ const routes: Routes = [
     AngularFirestore,
     AngularFireAuth,
     ErrorFacade,
-    UploadFacade,
     CartFacade,
     AuthGuard,
     AuthService,

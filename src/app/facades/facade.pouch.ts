@@ -27,7 +27,8 @@ export class PouchFacade {
 
   subject$ = new BehaviorSubject('')
 
-  order$: Observable<SooyahOrder[]> = from(this.pouch.getOrderPouch()).pipe(
+  order$: Observable<SooyahOrder[]> = this.subject$.pipe(
+    switchMap(item => from(this.pouch.getOrderPouch())),
     map(items => {
       return items.rows.map(data => {
         const ret: SooyahOrder = {

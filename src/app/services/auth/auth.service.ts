@@ -1,4 +1,4 @@
-import { map, catchError, shareReplay, switchMap } from 'rxjs/operators'
+import { map, catchError, shareReplay, switchMap, filter } from 'rxjs/operators'
 import { AngularFirestore } from '@angular/fire/firestore'
 import { Injectable } from '@angular/core'
 import { AngularFireAuth } from '@angular/fire/auth'
@@ -18,6 +18,7 @@ export class AuthService {
   ) {}
 
   credential$: Observable<any> = this.auth.authState.pipe(
+    filter(user => user !== null),
     switchMap(user => {
       return this.fireStore.doc<Credential>(`users/${user.uid}`).valueChanges()
     }),
